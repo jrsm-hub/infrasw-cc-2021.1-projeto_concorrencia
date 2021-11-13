@@ -14,16 +14,17 @@ public class Player {
         String windowTitle = "Music Player";
 
 
-        ActionListener buttonPlayNow = e -> {};
-        ActionListener buttonRemove = e -> {};
-        ActionListener buttonAddMusic = e -> {};
-        ActionListener buttonPlayPause = e -> {};
-        ActionListener buttonStop = e -> {};
-        ActionListener buttonNext = e -> {};
-        ActionListener buttonPrevious = e -> {};
-        ActionListener buttonShuffle = e -> {};
-        ActionListener buttonRepeat = e -> {};
-        MouseListener Click = new MouseListener() {
+        ActionListener buttonListenerPlayNow = e -> {};
+        ActionListener buttonListenerRemove = e -> {};
+        ActionListener buttonListenerAddSong = e -> {};
+        ActionListener buttonListenerPlayPause = e -> {};
+        ActionListener buttonListenerStop = e -> {};
+        ActionListener buttonListenerNext = e -> {};
+        ActionListener buttonListenerPrevious = e -> {};
+        ActionListener buttonListenerShuffle = e -> {};
+        ActionListener buttonListenerRepeat = e -> {};
+
+        MouseListener scrubberListenerClick = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
@@ -49,7 +50,7 @@ public class Player {
 
             }
         };
-        MouseMotionListener Motion = new MouseMotionListener() {
+        MouseMotionListener scrubberListenerMotion = new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
 
@@ -63,12 +64,12 @@ public class Player {
 
         String[][] queueArray = new String[1][1];
         this.window = new PlayerWindow(
-                buttonPlayNow, buttonRemove,
-                buttonAddMusic, buttonPlayPause,
-                buttonStop, buttonNext,
-                buttonPrevious, buttonShuffle,
-                buttonRepeat, Click,
-                Motion, windowTitle, queueArray
+                buttonListenerPlayNow, buttonListenerRemove,
+                buttonListenerAddSong, buttonListenerPlayPause,
+                buttonListenerStop, buttonListenerNext,
+                buttonListenerPrevious, buttonListenerShuffle,
+                buttonListenerRepeat, scrubberListenerClick,
+                scrubberListenerMotion, windowTitle, queueArray
         );
     }
 }
